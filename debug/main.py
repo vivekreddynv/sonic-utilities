@@ -1,6 +1,7 @@
 import click
 import subprocess
 
+
 def run_command(command, pager=False):
     click.echo(click.style("Command: ", fg='cyan') + click.style(command, fg='green'))
     p = subprocess.Popen(command, shell=True, text=True, stdout=subprocess.PIPE)
@@ -9,6 +10,9 @@ def run_command(command, pager=False):
         click.echo_via_pager(output)
     else:
         click.echo(output)
+
+from . import dump_ports
+
 
 
 CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help', '-?'])
@@ -276,6 +280,7 @@ else:
         command = 'sudo vtysh -c "debug zebra rib"'
         run_command(command)
 
-
+cli.add_command(dump_ports.ports)
+    
 if __name__ == '__main__':
     cli()
