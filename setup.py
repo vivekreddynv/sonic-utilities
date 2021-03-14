@@ -28,6 +28,7 @@ setup(
         'counterpoll',
         'crm',
         'debug',
+        'debug.copp',
         'pfcwd',
         'sfputil',
         'ssdutil',
