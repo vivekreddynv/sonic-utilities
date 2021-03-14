@@ -30,7 +30,7 @@ def get_asic_info(port):
         if val["SAI_HOSTIF_ATTR_NAME"] == port:
             ifmap = val["SAI_HOSTIF_ATTR_OBJ_ID"]
     tbl = swsscommon.Table(db, "ASIC_STATE:SAI_OBJECT_TYPE_PORT")
-    return (("KEY", ifmap), *tbl.get(ifmap)[1])
+    return (("KEY", ifmap), tbl.get(ifmap)[1])
 
 def resolve_alias(port):
     if "Ethernet" in port:

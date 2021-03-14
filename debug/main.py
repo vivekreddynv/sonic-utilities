@@ -14,6 +14,11 @@ def run_command(command, pager=False):
 from . import dump_ports
 
 
+from .copp import copp as copp_cmd
+
+
+
+
 
 CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help', '-?'])
 #
@@ -281,6 +286,7 @@ else:
         run_command(command)
 
 cli.add_command(dump_ports.ports)
+cli.add_command(copp_cmd.copp)
     
 if __name__ == '__main__':
     cli()
